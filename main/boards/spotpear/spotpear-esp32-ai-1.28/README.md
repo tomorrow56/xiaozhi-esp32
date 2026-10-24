@@ -39,6 +39,12 @@ Its reported type and firmware name are both `spotpear-esp32-ai-1.28`.
 This identity does not imply that an official OTA feed is available for it.
 Do not install firmware intended for another SpotPear revision.
 
+## Prebuilt firmware
+
+[Download the v2.5.3 English build](../../../../prebuilt/spotpear-esp32-ai-1.28/v2.5.3/)
+with a merged image, separate images, checksums and build settings.
+This newer build has passed compilation checks but is not yet hardware-tested.
+
 ## Build and flash
 
 Activate ESP-IDF 6.0.1 or newer (the project recommends `release/v6.1`), then

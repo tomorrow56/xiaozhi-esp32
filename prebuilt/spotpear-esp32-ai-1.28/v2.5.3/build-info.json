@@ -1,0 +1,17 @@
+{
+  "project": "xiaozhi",
+  "version": "2.5.3",
+  "board": "spotpear-esp32-ai-1.28",
+  "target": "esp32s3",
+  "source_commit": "1434dd52e071bc3905f559e76cc536da93014a9a",
+  "upstream_base_commit": "39d23aee5b8682f77bbdf9cdc66799456b5ad408",
+  "idf_version": "v6.1",
+  "toolchain": "xtensa-esp-elf GCC 15.2.0",
+  "language": "en-US",
+  "wake_word": "wn9_hiesp",
+  "flash_size_mb": 16,
+  "psram": "Octal, 80 MHz",
+  "app_size_bytes": 2532784,
+  "hardware_tested": false,
+  "previous_hardware_test": "Same board implementation tested on v2.5.0; speaker and microphone confirmed by user on 2026-10-15."
+}
