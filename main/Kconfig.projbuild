@@ -454,6 +454,12 @@ choice BOARD_TYPE
     config BOARD_TYPE_SEEED_XIAO_ESP32S3_RESPEAKER_XVF3800
         bool "Seeed XIAO ESP32-S3 + ReSpeaker XVF3800 USB 4-Mic Array"
         depends on IDF_TARGET_ESP32S3
+    config BOARD_TYPE_SPOTPEAR_ESP32_AI_1_28
+        bool "SpotPear ESP32-AI-1.28 v1.0 (MAX98357A / I2S mic)"
+        depends on IDF_TARGET_ESP32S3
+        help
+            Old non-legged board with separate microphone and speaker I2S clocks.
+            Not the ES8311-based ESP32-S3 1.28 Box.
     config BOARD_TYPE_SPOTPEAR_ESP32_S3_1_28_BOX
         bool "Spotpear ESP32-S3 1.28 Box"
         depends on IDF_TARGET_ESP32S3
