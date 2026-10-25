@@ -12,6 +12,25 @@
   "flash_size_mb": 16,
   "psram": "Octal, 80 MHz",
   "app_size_bytes": 2532784,
-  "hardware_tested": false,
-  "previous_hardware_test": "Same board implementation tested on v2.5.0; speaker and microphone confirmed by user on 2026-10-15."
+  "hardware_tested": true,
+  "previous_hardware_test": "Same board implementation tested on v2.5.0; speaker and microphone confirmed by user on 2026-10-15.",
+  "hardware_validation": {
+    "date": "2026-10-25",
+    "board": "SpotPear ESP32-AI-1.28 v1.0",
+    "flash_verification": "passed for all written images",
+    "startup_checks": [
+      "8 MB PSRAM detected",
+      "simplex I2S initialized",
+      "existing Wi-Fi settings retained and reconnected",
+      "MQTT connected",
+      "listening and speaking states observed",
+      "no abort or panic observed"
+    ],
+    "user_confirmed": [
+      "normal operation",
+      "speaker playback",
+      "microphone response"
+    ],
+    "initial_no_sound_report": "User identified a broken wire; after correcting wiring, operation was confirmed without firmware changes."
+  }
 }

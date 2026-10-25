@@ -40,9 +40,15 @@ Compilation, linking, application partition size checks, merged image generation
 and esptool image checksum validation passed. The app occupies `0x26a5b0` bytes;
 39% of the app partition remains free. Host tests passed (142 tests, 3 skipped).
 
-**This v2.5.3 build has not been flashed or hardware-tested.** The same board
-implementation was hardware-tested on v2.5.0, with working speaker and microphone
-reported on 2026-10-15. Hardware confirmation of v2.5.3 is still needed.
+**Hardware-tested on 2026-10-25.** All written images passed flash verification.
+Boot logs confirmed 8 MB PSRAM, simplex I2S initialization, Wi-Fi reconnection,
+MQTT connection, and listening/speaking state transitions without an observed
+abort or panic. The user confirmed normal operation, speaker playback and
+microphone response on the physical SpotPear ESP32-AI-1.28 v1.0.
+
+An initial no-sound report was traced by the user to a broken wire. Correcting
+the wiring restored normal operation; no firmware changes were needed.
+The earlier v2.5.0 build was also hardware-tested on 2026-10-15.
 
 ## Source and licensing
 

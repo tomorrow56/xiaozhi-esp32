@@ -43,7 +43,8 @@ Do not install firmware intended for another SpotPear revision.
 
 [Download the v2.5.3 English build](../../../../prebuilt/spotpear-esp32-ai-1.28/v2.5.3/)
 with a merged image, separate images, checksums and build settings.
-This newer build has passed compilation checks but is not yet hardware-tested.
+This v2.5.3 build was flashed and hardware-tested; speaker playback and microphone
+response were confirmed by the user on 2026-10-25.
 
 ## Build and flash
 
@@ -74,15 +75,22 @@ The same board source was built with Xiaozhi v2.5.0 and ESP-IDF v6.1,
 flashed to an ESP32-S3 with 16 MB flash / 8 MB PSRAM, and booted into
 Wi-Fi configuration without the ES8311 initialization failure. The user
 confirmed working speaker and microphone on 2026-10-15.
-This hardware result applies to that v2.5.0 firmware. A newer application
-build needs its own hardware smoke test; it is not implied by compilation.
+This was the initial v2.5.0 hardware validation; v2.5.3 was tested separately below.
 
 The port based on fork commit `39d23aee5b8682f77bbdf9cdc66799456b5ad408`
 (Xiaozhi v2.5.3) was compiled and linked with ESP-IDF v6.1 on 2026-10-24.
 The default English / `wn9_hiesp` build generated an app image of `0x26a5b0`
 bytes, leaving 39% of the application partition free. Host tests completed
 successfully (142 tests, 3 skipped); board source formatting and diff checks
-also passed. This v2.5.3 firmware has not yet been flashed or hardware-tested.
+also passed.
+
+On 2026-10-25 this v2.5.3 build was flashed with successful verification of
+all written images. Boot logs confirmed 8 MB PSRAM, simplex I2S initialization,
+reconnection using the existing Wi-Fi settings, MQTT connection, and transitions
+between listening and speaking without abort or panic during observation.
+The user confirmed normal operation, speaker playback and microphone response.
+An initially reported loss of sound was traced by the user to a broken wire;
+after correcting the wiring, the firmware worked without code or binary changes.
 
 ## References
 
