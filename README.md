@@ -2,6 +2,15 @@
 
 (English | [中文](README_zh.md) | [日本語](README_ja.md))
 
+## SpotPear StackChan variant
+
+This branch adds a StackChan-style face, blinking, expressions and speaker-driven
+lip sync for **SpotPear ESP32-AI-1.28 v1.0 (MAX98357A + NP0557)**.
+See the [Japanese guide](main/boards/spotpear/spotpear-esp32-ai-1.28/STACKCHAN.md)
+and [prebuilt firmware](prebuilt/spotpear-esp32-ai-1.28-stackchan/v2.5.3/).
+The original emoji build remains available. The new face/lip-sync variant has
+not yet been tested on physical hardware.
+
 ## Introduction
 
 👉 [Human: Give AI a camera vs AI: Instantly finds out the owner hasn't washed hair for three days【bilibili】](https://www.bilibili.com/video/BV1bpjgzKEhd/)

@@ -1,0 +1,33 @@
+{
+  "project": "xiaozhi",
+  "version": "2.5.3",
+  "board": "spotpear-esp32-ai-1.28",
+  "variant": "spotpear-esp32-ai-1.28-stackchan",
+  "target": "esp32s3",
+  "source_commit": "31cfc72b3f5a45de30fa1f3b28c11cb89826102b",
+  "upstream_base_commit": "39d23aee5b8682f77bbdf9cdc66799456b5ad408",
+  "idf_version": "v6.1",
+  "toolchain": "xtensa-esp-elf GCC 15.2.0",
+  "language": "en-US",
+  "wake_word": "wn9_hiesp",
+  "flash_size_mb": 16,
+  "psram": "Octal, 80 MHz",
+  "app_size_bytes": 2534992,
+  "stackchan_reference_commit": "eff0d6b5109663faec8f1d98848b4b0e5246bbfc",
+  "hardware_tested": false,
+  "hardware_validation": "Pending for this display/lip-sync variant. Original firmware speaker and microphone were confirmed by the user.",
+  "validation": {
+    "stackchan_build": "passed",
+    "esptool_image_checksum": "valid",
+    "esptool_validation_hash": "valid",
+    "merged_segments_match": "all five flash images verified against the merged image",
+    "standard_variant_build": "passed; CONFIG_SPOTPEAR_STACKCHAN_FACE disabled; app size 2532784 bytes",
+    "host_tests": {
+      "run": 143,
+      "skipped": 3,
+      "result": "OK",
+      "skipped_reason": "Optional numpy/Pillow/packaging dependencies unavailable for three asset encoding tests"
+    },
+    "format_and_diff_checks": "passed"
+  }
+}

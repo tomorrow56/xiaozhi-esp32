@@ -1,0 +1,4 @@
+# These versioned artifacts are intentionally published.
+!*.bin
+!sdkconfig
+!dependencies.lock
