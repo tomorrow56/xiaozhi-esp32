@@ -6,6 +6,13 @@
         {
             "name": "spotpear-esp32-ai-1.28",
             "sdkconfig_append": []
+        },
+        {
+            "name": "spotpear-esp32-ai-1.28-stackchan",
+            "sdkconfig_append": [
+                "CONFIG_USE_DEFAULT_MESSAGE_STYLE=y",
+                "CONFIG_SPOTPEAR_STACKCHAN_FACE=y"
+            ]
         }
     ]
 }

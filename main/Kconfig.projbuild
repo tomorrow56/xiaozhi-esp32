@@ -924,6 +924,15 @@ choice DISPLAY_ESP32S3_TOUCH_LCD_1_85C
 endchoice
 
 
+config SPOTPEAR_STACKCHAN_FACE
+    bool "StackChan face with playback lip sync (SpotPear 1.28)"
+    default n
+    depends on BOARD_TYPE_SPOTPEAR_ESP32_AI_1_28 && USE_DEFAULT_MESSAGE_STYLE
+    help
+        Use a lightweight StackChan-inspired LVGL face with blinking and
+        mouth animation driven by speaker PCM amplitude. GPIO and I2S
+        configuration stay identical to the standard SpotPear board.
+
 choice DISPLAY_STYLE
     prompt "Select display style"
     default USE_DEFAULT_MESSAGE_STYLE

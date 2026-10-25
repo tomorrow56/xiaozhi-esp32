@@ -4,6 +4,14 @@
 #include "config.h"
 #include "display/lcd_display.h"
 #include "wifi_board.h"
+#if CONFIG_SPOTPEAR_STACKCHAN_FACE
+#include "stackchan_face.h"
+using BoardDisplay = StackChanDisplay;
+using BoardAudioCodec = StackChanAudioCodec;
+#else
+using BoardDisplay = SpiLcdDisplay;
+using BoardAudioCodec = NoAudioCodecSimplex;
+#endif
 
 #include <driver/spi_common.h>
 #include <esp_lcd_panel_io.h>
@@ -58,9 +66,9 @@ private:
         ESP_ERROR_CHECK(esp_lcd_panel_mirror(panel, DISPLAY_MIRROR_X, DISPLAY_MIRROR_Y));
         ESP_ERROR_CHECK(esp_lcd_panel_disp_on_off(panel, true));
 
-        display_ = new SpiLcdDisplay(panel_io, panel, DISPLAY_WIDTH, DISPLAY_HEIGHT,
-                                     DISPLAY_OFFSET_X, DISPLAY_OFFSET_Y, DISPLAY_MIRROR_X,
-                                     DISPLAY_MIRROR_Y, DISPLAY_SWAP_XY);
+        display_ =
+            new BoardDisplay(panel_io, panel, DISPLAY_WIDTH, DISPLAY_HEIGHT, DISPLAY_OFFSET_X,
+                             DISPLAY_OFFSET_Y, DISPLAY_MIRROR_X, DISPLAY_MIRROR_Y, DISPLAY_SWAP_XY);
     }
 
     void InitializeButtons() {
@@ -86,11 +94,11 @@ public:
     }
 
     AudioCodec* GetAudioCodec() override {
-        static NoAudioCodecSimplex audio_codec(AUDIO_INPUT_SAMPLE_RATE, AUDIO_OUTPUT_SAMPLE_RATE,
-                                               AUDIO_I2S_SPK_GPIO_BCLK, AUDIO_I2S_SPK_GPIO_LRCK,
-                                               AUDIO_I2S_SPK_GPIO_DOUT, AUDIO_I2S_SPK_SLOT_MASK,
-                                               AUDIO_I2S_MIC_GPIO_SCK, AUDIO_I2S_MIC_GPIO_WS,
-                                               AUDIO_I2S_MIC_GPIO_DIN, AUDIO_I2S_MIC_SLOT_MASK);
+        static BoardAudioCodec audio_codec(AUDIO_INPUT_SAMPLE_RATE, AUDIO_OUTPUT_SAMPLE_RATE,
+                                           AUDIO_I2S_SPK_GPIO_BCLK, AUDIO_I2S_SPK_GPIO_LRCK,
+                                           AUDIO_I2S_SPK_GPIO_DOUT, AUDIO_I2S_SPK_SLOT_MASK,
+                                           AUDIO_I2S_MIC_GPIO_SCK, AUDIO_I2S_MIC_GPIO_WS,
+                                           AUDIO_I2S_MIC_GPIO_DIN, AUDIO_I2S_MIC_SLOT_MASK);
         return &audio_codec;
     }
 

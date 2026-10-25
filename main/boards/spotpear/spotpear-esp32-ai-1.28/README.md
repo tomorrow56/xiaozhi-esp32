@@ -46,6 +46,15 @@ with a merged image, separate images, checksums and build settings.
 This v2.5.3 build was flashed and hardware-tested; speaker playback and microphone
 response were confirmed by the user on 2026-10-25.
 
+## StackChan face variant
+
+The separate `spotpear-esp32-ai-1.28-stackchan` build replaces the emoji with
+an LVGL StackChan-style face, blinking, expressions and playback-driven lip sync.
+[Japanese instructions and implementation notes](STACKCHAN.md).
+The original build remains available and is unchanged when the option is disabled.
+The StackChan variant requires its own hardware validation; the checks below
+refer to the original firmware.
+
 ## Build and flash
 
 Activate ESP-IDF 6.0.1 or newer (the project recommends `release/v6.1`), then
