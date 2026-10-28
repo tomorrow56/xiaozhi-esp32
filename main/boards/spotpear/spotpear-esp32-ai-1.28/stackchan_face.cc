@@ -132,7 +132,8 @@ void StackChanDisplay::Render() {
     const auto color = lv_obj_get_style_text_color(lv_screen_active(), LV_PART_MAIN);
     const int gaze = emotion == 6 ? 4 : static_cast<int>(std::sin(now / 1600.0) * 2);
     for (int i = 0; i < 2; ++i) {
-        const int h = blink ? 3 : emotion == 4 ? 5 : emotion == 1 ? 8 : emotion == 5 ? 27 : 20;
+        // Keep happy/speaking eyes round; only blink and sleepy close the eyelids.
+        const int h = blink ? 3 : emotion == 4 ? 5 : emotion == 5 ? 27 : 20;
         lv_obj_set_size(eyes_[i], 20, h);
         lv_obj_align(eyes_[i], LV_ALIGN_CENTER, (i ? 49 : -49) + gaze, -16);
         lv_obj_set_style_radius(eyes_[i], LV_RADIUS_CIRCLE, 0);
