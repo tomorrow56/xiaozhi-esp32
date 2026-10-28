@@ -4,7 +4,7 @@
   "board": "spotpear-esp32-ai-1.28",
   "variant": "spotpear-esp32-ai-1.28-stackchan",
   "target": "esp32s3",
-  "source_commit": "31cfc72b3f5a45de30fa1f3b28c11cb89826102b",
+  "source_commit": "5fff7c172bdf1fd4be3d940b0ff20af97dded6a3",
   "upstream_base_commit": "39d23aee5b8682f77bbdf9cdc66799456b5ad408",
   "idf_version": "v6.1",
   "toolchain": "xtensa-esp-elf GCC 15.2.0",
@@ -15,7 +15,7 @@
   "app_size_bytes": 2534992,
   "stackchan_reference_commit": "eff0d6b5109663faec8f1d98848b4b0e5246bbfc",
   "hardware_tested": false,
-  "hardware_validation": "Pending for this display/lip-sync variant. Original firmware speaker and microphone were confirmed by the user.",
+  "hardware_validation": "Initial StackChan version confirmed working by user on 2026-10-28. Round-happy-eyes refinement awaits visual confirmation.",
   "validation": {
     "stackchan_build": "passed",
     "esptool_image_checksum": "valid",
@@ -26,8 +26,23 @@
       "run": 143,
       "skipped": 3,
       "result": "OK",
-      "skipped_reason": "Optional numpy/Pillow/packaging dependencies unavailable for three asset encoding tests"
+      "skipped_reason": "Optional numpy/Pillow/packaging dependencies unavailable for three asset encoding tests",
+      "source_commit": "31cfc72b3f5a45de30fa1f3b28c11cb89826102b",
+      "note": "Baseline full-suite result. This refinement changes only board-local eye geometry and documentation; verified by rebuilding the affected variant."
     },
-    "format_and_diff_checks": "passed"
-  }
+    "format_and_diff_checks": "passed",
+    "round_eyes_build": "passed with ESP-IDF v6.1; 39% app partition free",
+    "round_eyes_device_check": {
+      "date": "2026-10-28",
+      "flash_verification": "passed; app-only update at 0x20000",
+      "boot": "StackChan and simplex I2S initialized; Wi-Fi reconnected; idle state reached",
+      "visual_confirmation": "pending"
+    }
+  },
+  "previous_hardware_validation": {
+    "source_commit": "31cfc72b3f5a45de30fa1f3b28c11cb89826102b",
+    "date": "2026-10-28",
+    "result": "User confirmed operation OK after flashing StackChan/lip-sync firmware."
+  },
+  "change": "Keep happy-family eyes round at 20x20 px; preserve blink and sleepy expressions."
 }
